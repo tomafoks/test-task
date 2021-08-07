@@ -15,7 +15,17 @@ class CreateEquipmentTable extends Migration
     {
         Schema::create('equipment', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('price');
+            $table->string('serial_number');
+            $table->string('inventory_number');
+            $table->integer('distributor_id')->unsigned();
             $table->timestamps();
+
+            /**
+             * ссылаемся напрямую в таблицу users т.к. у нас нет таблицы distributors
+            */
+            $table->foreign('distributor_id')->references('id')->on('users');
         });
     }
 
