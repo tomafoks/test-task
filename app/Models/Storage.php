@@ -10,4 +10,12 @@ class Storage extends Model
     protected $fillable = [
         'name',
     ];
+
+    /**
+     * отношение склада ко множесту оборудования
+     */
+    public function equipments()
+    {
+        return $this->hasMany(Equipment::class);
+    }
 }

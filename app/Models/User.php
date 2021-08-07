@@ -11,6 +11,9 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    /**
+     * константы на проверку usera на admina
+     */
     const IS_ADMIN = true;
     const NOT_ADMIN = false;
 
