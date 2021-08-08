@@ -6,11 +6,8 @@ use App\Models\Equipment;
 
 class Manager extends User
 {
-    /**
-     * отношение управлющих ко множесту оборудования
-     */
-    public function equipments()
+    public function storages()
     {
-        return $this->belongsToMany(Equipment::class);
+
     }
 }

@@ -16,22 +16,15 @@ class Equipment extends Model
         'serial_number',
         'inventory number',
         'distributor_id',
+        'storage_id',
     ];
 
     /**
-     * отношение оборудования ко множесту поставщиков
+     * отношение оборудования к поставщику
      */
-    public function distributors()
+    public function distributor()
     {
-        return $this->belongsToMany(Distributor::class);
-    }
-
-    /**
-     * отношение оборудований ко множесту урпаляющих
-     */
-    public function managers()
-    {
-        return $this->belongsToMany(Manager::class);
+        return $this->belongsTo(Distributor::class);
     }
 
     /**
