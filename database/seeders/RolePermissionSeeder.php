@@ -46,7 +46,7 @@ class RolePermissionSeeder extends Seeder
             'edit_equipment',
         ];
 
-        $distributor = Role::whereName('Viewer')->first();
+        $distributor = Role::whereName('Distributor')->first();
         foreach ($permissions as $permission) {
             if (in_array($permission->name, $distributorRoles)) {
                 DB::table('role_permission')->insert([
