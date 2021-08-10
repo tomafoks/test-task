@@ -42,10 +42,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    /**
-     *  проверка на админа
-     */
-    public function isAdmin() {
-        return $this->is_admin == User::IS_ADMIN;
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    function permissions() {
+        return $this->role->permissions->pluck('name');
+    }
+
+    function hasAccess($access)
+    {
+        return $this->permissions()->contains($access);
     }
 }
