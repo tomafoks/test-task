@@ -6,8 +6,5 @@ use App\Models\Equipment;
 
 class Manager extends User
 {
-    public function storages()
-    {
 
-    }
 }

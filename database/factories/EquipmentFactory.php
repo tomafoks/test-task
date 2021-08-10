@@ -28,8 +28,6 @@ class EquipmentFactory extends Factory
             'price' => $this->faker->randomFloat(2, 30000, 100000000),
             'serial_number' => $this->randomNumber(5, true),
             'inventory_number' => $this->faker->randomNumber(7, true),
-            'distributor_id' => User::all()->random()->id,
-            'storage_id' => Storage::all()->random()->id,
         ];
     }
 }

@@ -12,12 +12,6 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     /**
-     * константы на проверку usera на admina
-     */
-    const IS_ADMIN = true;
-    const NOT_ADMIN = false;
-
-    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -26,7 +20,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'is_admin',
     ];
 
     /**
@@ -48,6 +41,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     *  проверка на админа
+     */
     public function isAdmin() {
         return $this->is_admin == User::IS_ADMIN;
     }
