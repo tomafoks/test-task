@@ -14,22 +14,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/**
- * Disributor (поставщики)
- */
-Route::resource('disributor', Distributor\DistributorController::class)->except(['destroy']);
 
-/**
- * Manager (управляющий)
- */
-Route::resource('manager', Manager\ManagerController::class)->except(['destroy']);
+Route::group(['middleware' => 'auth.basic.once'], function () {
+    /**
+     * Disributor (поставщики)
+     */
+    Route::resource('disributor', Distributor\DistributorController::class)->except(['destroy']);
 
-/**
- * Equipment (оборудование)
- */
-Route::resource('equipment', Equipment\EquipmentController::class)->except(['destroy']);
+    /**
+     * Manager (управляющий)
+     */
+    Route::resource('manager', Manager\ManagerController::class)->except(['destroy']);
 
-/**
- * Storage (склад)
- */
-Route::resource('storage', Storage\StorageController::class)->only(['index']);
+    /**
+     * Equipment (оборудование)
+     */
+    Route::resource('equipment', Equipment\EquipmentController::class)->except(['destroy']);
+
+    /**
+     * Storage (склад)
+     */
+    Route::resource('storage', Storage\StorageController::class)->only(['index']);
+});
