@@ -13,6 +13,6 @@ class EquipmentSeeder extends Seeder
      */
     public function run()
     {
-        //
+        \App\Models\Equipment::factory(10)->create();
     }
 }

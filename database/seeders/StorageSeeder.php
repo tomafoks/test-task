@@ -13,6 +13,6 @@ class StorageSeeder extends Seeder
      */
     public function run()
     {
-        //
+        \App\Models\Storage::factory(3)->create();
     }
 }

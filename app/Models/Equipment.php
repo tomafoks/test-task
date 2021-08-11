@@ -10,11 +10,14 @@ use App\Models\Storage;
 
 class Equipment extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'name',
         'price',
         'serial_number',
         'inventory_number',
+        'distributor_id',
     ];
 
     /**
