@@ -19,7 +19,9 @@ Route::group(['middleware' => 'auth.basic.once'], function () {
     /**
      * Disributor (поставщики)
      */
-    Route::resource('disributor', Distributor\DistributorController::class)->except(['destroy']);
+    Route::resource('disributor', Distributor\DistributorController::class)
+        ->except(['destroy'])
+        ->middleware('chek.role:Distributor');
 
     /**
      * Manager (управляющий)

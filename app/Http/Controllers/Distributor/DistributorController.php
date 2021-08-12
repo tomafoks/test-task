@@ -17,7 +17,7 @@ class DistributorController extends Controller
     public function index()
     {
         $user = auth()->user()->id;
-        $dist = User::find($user)->equipments;
+        $dist = User::find($user);
         dd($dist);
     }
 
