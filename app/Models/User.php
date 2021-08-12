@@ -47,12 +47,18 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
-    function permissions() {
+    public function permissions() {
         return $this->role->permissions->pluck('name');
     }
 
-    function hasAccess($access)
+    public function hasAccess($access)
     {
         return $this->permissions()->contains($access);
     }
+
+    public function equipments()
+    {
+        return $this->hasMany(Equipment::class, 'distributor_id');
+    }
+
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Distributor;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DistributorController extends Controller
@@ -12,9 +13,12 @@ class DistributorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        //
+        $user = auth()->user()->id;
+        $dist = User::find($user)->equipments;
+        dd($dist);
     }
 
     /**

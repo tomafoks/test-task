@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Equipment;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class EquipmentController extends Controller
@@ -14,7 +15,8 @@ class EquipmentController extends Controller
      */
     public function index()
     {
-        //
+        $dist = User::find(3)->equipments;
+        dd($dist);
     }
 
     /**

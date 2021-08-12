@@ -4,8 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use app\Models\Distributor;
-use App\Models\Manager;
 use App\Models\Storage;
 
 class Equipment extends Model
@@ -25,7 +23,7 @@ class Equipment extends Model
      */
     public function distributor()
     {
-        return $this->belongsTo(Distributor::class);
+        return $this->belongsTo(User::class);
     }
 
     /**
