@@ -3,83 +3,44 @@
 namespace App\Http\Controllers\Equipment;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\EquipmentResource;
+use App\Models\Equipment;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class EquipmentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $dist = User::find(3)->equipments;
+        $userId = auth()->user()->id;
+        $dist = User::find($userId)->equipments;
         dd($dist);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $equipment = Equipment::created(
+            $request->only(
+                'name',
+                'price',
+                'serial_number',
+                'inventory_number',
+            ) + ['distributor_id' => auth()->user()->id]
+        );
+        return response(new EquipmentResource($equipment), 201);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //

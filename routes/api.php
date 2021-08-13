@@ -17,24 +17,31 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'auth.basic.once'], function () {
     /**
-     * Disributor (поставщики)
+     * Distributor (поставщики)
      */
-    Route::resource('disributor', Distributor\DistributorController::class)
-        ->except(['destroy'])
-        ->middleware('chek.role:Distributor');
+    Route::resource('distributor', Distributor\DistributorController::class)
+        ->except(['destroy']);
+        // ->middleware('chek.role:Distributor');
 
     /**
      * Manager (управляющий)
      */
-    Route::resource('manager', Manager\ManagerController::class)->except(['destroy']);
+    Route::resource('manager', Manager\ManagerController::class)
+        ->except(['destroy']);
+        // ->middleware('chek.role:Manager');
 
     /**
      * Equipment (оборудование)
      */
-    Route::resource('equipment', Equipment\EquipmentController::class)->except(['destroy']);
+    Route::resource('equipment', Equipment\EquipmentController::class)
+        ->except(['destroy']);
+        // ->middleware('chek.role:Admin');
 
     /**
      * Storage (склад)
      */
-    Route::resource('storage', Storage\StorageController::class)->only(['index']);
+    Route::resource('storage', Storage\StorageController::class)
+        ->only(['index']);
+        // ->middleware('chek.role:Admin');
+
 });

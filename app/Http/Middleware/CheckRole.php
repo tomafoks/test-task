@@ -16,9 +16,12 @@ class CheckRole
      */
     public function handle(Request $request, Closure $next, $role)
     {
+        $userRole = $request->user()->role->name;
         // проверка роли юзера
-        if ($request->user()->role->name != $role) {
-            redirect()->route('/');
+        if ($userRole != 'Admin' and $userRole != $role) {
+            return response()->json([
+                'message' => 'Record not found.'
+            ], 404);
         }
 
         return $next($request);
