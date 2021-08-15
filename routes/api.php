@@ -19,29 +19,14 @@ Route::group(['middleware' => 'auth.basic.once'], function () {
     /**
      * Distributor (поставщики)
      */
-    Route::resource('distributor', Distributor\DistributorController::class)
+    Route::resource('distributor/equipment', Distributor\EquipmentDistributorController::class)
         ->except(['destroy']);
         // ->middleware('chek.role:Distributor');
 
     /**
      * Manager (управляющий)
      */
-    Route::resource('manager', Manager\ManagerController::class)
+    Route::resource('manager/equipment', Manager\EquipmentManagerController::class)
         ->except(['destroy']);
         // ->middleware('chek.role:Manager');
-
-    /**
-     * Equipment (оборудование)
-     */
-    Route::resource('equipment', Equipment\EquipmentController::class)
-        ->except(['destroy']);
-        // ->middleware('chek.role:Admin');
-
-    /**
-     * Storage (склад)
-     */
-    Route::resource('storage', Storage\StorageController::class)
-        ->only(['index']);
-        // ->middleware('chek.role:Admin');
-
 });

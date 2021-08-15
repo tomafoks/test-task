@@ -9,6 +9,7 @@ use App\Models\Storage;
 class Equipment extends Model
 {
     use HasFactory;
+    protected $table = 'equipment';
 
     protected $fillable = [
         'name',
