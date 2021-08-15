@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Distributor;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreEquipmentRequest;
 use App\Http\Resources\EquipmentDistributorResourse;
 use App\Http\Resources\EquipmentResource;
 use App\Models\Equipment;
@@ -18,7 +19,7 @@ class EquipmentDistributorController extends Controller
         return EquipmentDistributorResourse::collection($dist);
     }
 
-    public function store(Request $request)
+    public function store(StoreEquipmentRequest $request)
     {
         $equipment = Equipment::create(
             $request->only(
