@@ -30,3 +30,4 @@ Route::group(['middleware' => 'auth.basic.once'], function () {
         ->except(['destroy']);
         // ->middleware('chek.role:Manager');
 });
+
