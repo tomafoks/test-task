@@ -21,7 +21,7 @@ class EquipmentDistributorResourse extends JsonResource
             'serial_number' => $this->serial_number,
             'inventory_number' => $this->inventory_number,
             'created_at' => $this->created_at,
-            'distributor' => $this->distributor->role,
+            // 'distributor' => $this->distributor->role,
         ];
     }
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7759431e303e2d722a264a8a991a9e84",
+    "content-hash": "92e734998997b5e9740b5caf5d63e2fe",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1907,6 +1907,59 @@
                 "source": "https://github.com/nikic/PHP-Parser/tree/v4.12.0"
             },
             "time": "2021-07-21T10:44:31+00:00"
+        },
+        {
+            "name": "norbis/laravel-log-notification-channel",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/norbis/laravel-log-notification-channel.git",
+                "reference": "d406b4ecf9e85b669e6016c4e5f3957e04738735"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/norbis/laravel-log-notification-channel/zipball/d406b4ecf9e85b669e6016c4e5f3957e04738735",
+                "reference": "d406b4ecf9e85b669e6016c4e5f3957e04738735",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^8.0",
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.4.2",
+                "phpunit/phpunit": "^9.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NotificationChannels\\LogChannel\\LogChannelServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NotificationChannels\\LogChannel\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Log Notification Channel for Laravel",
+            "homepage": "https://github.com/norbis/laravel-log-notification-channel.git",
+            "keywords": [
+                "dengisrazy",
+                "laravel",
+                "notifications",
+                "smsgate"
+            ],
+            "support": {
+                "issues": "https://github.com/norbis/laravel-log-notification-channel/issues",
+                "source": "https://github.com/norbis/laravel-log-notification-channel/tree/1.0.0"
+            },
+            "time": "2021-04-11T10:37:44+00:00"
         },
         {
             "name": "opis/closure",
