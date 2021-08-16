@@ -4,22 +4,20 @@ namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class RegistrEquipment extends Notification
+class RegistrEquipment extends Notification implements ShouldQueue
 {
     use Queueable;
-    public $fromUser;
+    public $equipment;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-
-    public function __construct($user)
+    public function __construct($equipment)
     {
-        $this->fromUser = $user;
+        $this->equipment = $equipment;
     }
 
     /**
@@ -34,20 +32,6 @@ class RegistrEquipment extends Notification
     }
 
     /**
-     * Get the mail representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return \Illuminate\Notifications\Messages\MailMessage
-     */
-    public function toMail($notifiable)
-    {
-        // return (new MailMessage)
-        //     ->line('The introduction to the notification.')
-        //     ->action('Notification Action', url('/'))
-        //     ->line('Thank you for using our application!');
-    }
-
-    /**
      * Get the array representation of the notification.
      *
      * @param  mixed  $notifiable
@@ -56,8 +40,7 @@ class RegistrEquipment extends Notification
     public function toArray($notifiable)
     {
         return [
-            'user' => $this->fromUser,
-            'message' => 'Новое оборудование зарегистрировано'
+            'equipment' => $this->equipment,
         ];
     }
 }
