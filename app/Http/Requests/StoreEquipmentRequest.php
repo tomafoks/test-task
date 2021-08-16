@@ -24,7 +24,7 @@ class StoreEquipmentRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => 'required|min:3',
             'price' => 'required',
             'serial_number' => 'required',
             'inventory_number' => 'required'
