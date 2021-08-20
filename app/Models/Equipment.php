@@ -34,4 +34,17 @@ class Equipment extends Model
     {
         return $this->belongsTo(Storage::class);
     }
+
+    public function createEquipment($request)
+    {
+        $equipment = $this::create(
+            $request->only(
+                'name',
+                'price',
+                'serial_number',
+                'inventory_number',
+            ) + ['distributor_id' => auth()->user()->id]
+        );
+        return $equipment;
+    }
 }

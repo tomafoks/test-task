@@ -21,17 +21,14 @@ class EquipmentDistributorController extends Controller
 
     public function store(StoreEquipmentRequest $request)
     {
-        $equipment = Equipment::create(
-            $request->only(
-                'name',
-                'price',
-                'serial_number',
-                'inventory_number',
-            ) + ['distributor_id' => auth()->user()->id]
-        );
+        //создаем оборудование
+        $equipment = new Equipment();
+        $equipment = $equipment->createEquipment($request);
+
         //отправка уведомления о зарегистрированном оборудовании
         RegisterEquipment::dispatch($equipment);
 
+        //возвращаем json
         return response(new EquipmentDistributorResourse($equipment), 201);
     }
 }
