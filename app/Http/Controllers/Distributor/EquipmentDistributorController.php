@@ -8,7 +8,6 @@ use App\Http\Resources\EquipmentDistributorResourse;
 use App\Jobs\RegisterEquipment;
 use App\Models\Equipment;
 use App\Models\User;
-use App\Notifications\RegistrEquipment;
 
 class EquipmentDistributorController extends Controller
 {

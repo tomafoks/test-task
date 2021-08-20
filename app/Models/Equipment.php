@@ -17,6 +17,7 @@ class Equipment extends Model
         'serial_number',
         'inventory_number',
         'distributor_id',
+        'storage_id'
     ];
 
     /**
