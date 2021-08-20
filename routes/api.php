@@ -21,13 +21,17 @@ Route::group(['middleware' => 'auth.basic.once'], function () {
      */
     Route::resource('distributor/equipment', Distributor\EquipmentDistributorController::class)
         ->except(['destroy']);
-        // ->middleware('chek.role:Distributor');
+    // ->middleware('chek.role:Distributor');
 
     /**
      * Manager (управляющий)
      */
     Route::resource('manager/equipment', Manager\EquipmentManagerController::class)
         ->except(['destroy']);
-        // ->middleware('chek.role:Manager');
-});
+    // ->middleware('chek.role:Manager');
 
+    /**
+     * отчет
+     */
+    Route::get('report', 'ReportController@index');
+});

@@ -14,7 +14,7 @@ class AddStorageIdToEquipmentTable extends Migration
     public function up()
     {
         Schema::table('equipment', function (Blueprint $table) {
-            $table->unsignedBigInteger('storage_id')->default(3);
+            $table->unsignedBigInteger('storage_id')->default(1);
             $table->foreign('storage_id')->references('id')->on('storages');
         });
     }

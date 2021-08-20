@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Filters\EquipmentFilter;
+use App\Models\Equipment;
 use Illuminate\Http\Request;
 
 class ReportController extends Controller
@@ -11,19 +13,8 @@ class ReportController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(EquipmentFilter $filters)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        return Equipment::filter($filters)->get();
     }
 }

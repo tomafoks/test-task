@@ -44,6 +44,7 @@ class EquipmentFactory extends Factory
             'serial_number' => $this->faker->randomNumber(5, true),
             'inventory_number' => $this->faker->randomNumber(7, true),
             'distributor_id' => $user_id,
+            'storage_id' => $this->faker->numberBetween(1, 3),
         ];
     }
 }

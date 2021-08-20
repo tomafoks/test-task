@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use App\Http\Filters\QueryFilter;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Storage;
+use Illuminate\Database\Eloquent\Builder;
 
 class Equipment extends Model
 {
@@ -47,5 +49,11 @@ class Equipment extends Model
             ) + ['distributor_id' => auth()->user()->id]
         );
         return $equipment;
+    }
+
+    //фильтр для поиска и сортировки
+    public function scopeFilter(Builder $builder, QueryFilter $filters)
+    {
+        return $filters->apply($builder);
     }
 }
