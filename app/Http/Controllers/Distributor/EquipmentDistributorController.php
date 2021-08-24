@@ -27,7 +27,6 @@ class EquipmentDistributorController extends Controller
         //отправка уведомления о зарегистрированном оборудовании
         RegisterEquipment::dispatch($equipment);
 
-        //возвращаем json
         return response(new EquipmentDistributorResourse($equipment), 201);
     }
 }

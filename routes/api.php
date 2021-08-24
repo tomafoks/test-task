@@ -34,7 +34,7 @@ Route::group(['middleware' => 'auth.basic.once'], function () {
      * Manager (управляющий)
      */
     Route::group(['prefix' => 'manager'], function () {
-        Route::resource('quipment', Manager\EquipmentManagerController::class)
+        Route::resource('equipment', Manager\EquipmentManagerController::class)
             ->except(['destroy']);
         // ->middleware('chek.role:Manager');
 

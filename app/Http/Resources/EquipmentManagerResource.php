@@ -14,6 +14,13 @@ class EquipmentManagerResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'price' => $this->price,
+            'serial_number' => $this->serial_number,
+            'inventory_number' => $this->inventory_number,
+            'created_at' => $this->created_at,
+        ];
     }
 }

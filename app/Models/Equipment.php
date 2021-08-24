@@ -51,9 +51,19 @@ class Equipment extends Model
         return $equipment;
     }
 
-    //фильтр для поиска и сортировки
+    /**
+     * фильтр для поиска и сортировки
+     */
     public function scopeFilter(Builder $builder, QueryFilter $filters)
     {
         return $filters->apply($builder);
+    }
+
+    /**
+     * Возврощает оборудование с нужной пагинацией, отсортированное по дате
+     */
+    static public function getEquipmentManager($paginate)
+    {
+        return self::latest()->paginate($paginate);
     }
 }
