@@ -19,7 +19,7 @@ class EquipmentManagerController extends Controller
 
     public function store(StoreManagerStorageRequest $request)
     {
-        //перемещаем оборудавание на склад
+        //перемещаем оборудавание по складам
         $equipment = new Equipment();
         $equipment = $equipment->moveToStorage($request);
 

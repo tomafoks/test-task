@@ -54,9 +54,9 @@ class Equipment extends Model
     /**
      * фильтр для поиска и сортировки
      */
-    public function scopeFilter(Builder $builder, QueryFilter $filters)
+    public function scopeFilter(Builder $builder, QueryFilter $filters, $distributorId = null)
     {
-        return $filters->apply($builder);
+        return $filters->apply($builder, $distributorId);
     }
 
     /**
@@ -68,11 +68,11 @@ class Equipment extends Model
     }
 
     /**
-     * переместить на склад $id - оборудование, $storageId - id склада
+     * переместить на склад $request->id -- оборудование, $request->storage_id -- id склада
      */
     public function moveToStorage($request)
     {
-        $equipment = $this::find($request->id);
+        $equipment = $this::findOrFail($request->id);
         $equipment->storage_id = $request->storageId;
         $equipment->save();
         return $equipment;
