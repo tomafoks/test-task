@@ -21,6 +21,10 @@ class EquipmentManagerResource extends JsonResource
             'serial_number' => $this->serial_number,
             'inventory_number' => $this->inventory_number,
             'created_at' => $this->created_at,
+            'storage' => [
+                'id' => $this->storage['id'],
+                'name' => $this->storage['name']
+            ],
         ];
     }
 }

@@ -21,7 +21,7 @@ Route::group(['middleware' => 'auth.basic.once'], function () {
      */
     Route::group(['prefix' => 'distributor'], function () {
         Route::resource('equipment', Distributor\EquipmentDistributorController::class)
-            ->except(['destroy']);
+            ->only(['store', 'index']);
         // ->middleware('chek.role:Distributor');
 
         /**
@@ -35,7 +35,7 @@ Route::group(['middleware' => 'auth.basic.once'], function () {
      */
     Route::group(['prefix' => 'manager'], function () {
         Route::resource('equipment', Manager\EquipmentManagerController::class)
-            ->except(['destroy']);
+            ->only(['store', 'index']);
         // ->middleware('chek.role:Manager');
 
         /**
