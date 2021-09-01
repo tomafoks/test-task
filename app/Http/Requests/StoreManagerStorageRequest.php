@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreManagerStorage extends FormRequest
+class StoreManagerStorageRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,8 @@ class StoreManagerStorage extends FormRequest
     public function rules()
     {
         return [
-            'storage' => 'required'
+            'id' => 'required|numeric',
+            'storageId' => 'required|numeric|min:1|max:3'
         ];
     }
 }

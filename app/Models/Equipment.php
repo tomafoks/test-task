@@ -66,4 +66,15 @@ class Equipment extends Model
     {
         return self::latest()->paginate($paginate);
     }
+
+    /**
+     * переместить на склад $id - оборудование, $storageId - id склада
+     */
+    public function moveToStorage($request)
+    {
+        $equipment = $this::find($request->id);
+        $equipment->storage_id = $request->storageId;
+        $equipment->save();
+        return $equipment;
+    }
 }
