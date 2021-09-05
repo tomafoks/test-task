@@ -56,6 +56,7 @@ class MoveEquipmentToStorage extends Notification implements ShouldQueue
             'new_storage' => $this->equipment->storage_id,
             'manager_name' => $notifiable->name,
             'manager_email' => $notifiable->email,
+            'message' => 'moving equipment to storage'
         ];
     }
 }

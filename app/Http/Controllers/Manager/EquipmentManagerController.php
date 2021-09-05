@@ -7,11 +7,13 @@ use App\Http\Requests\StoreManagerStorageRequest;
 use App\Http\Resources\EquipmentManagerResource;
 use App\Jobs\MoveEquipmentToStorage;
 use App\Models\Equipment;
+use Illuminate\Support\Facades\Gate;
 
 class EquipmentManagerController extends Controller
 {
     public function index()
     {
+        Gate::authorize('manager', 'equipment');
         //получаем отсортированный ответ по последнему добавлению
         $equipments = Equipment::getEquipmentManager(10);
         return EquipmentManagerResource::collection($equipments);
@@ -19,6 +21,7 @@ class EquipmentManagerController extends Controller
 
     public function store(StoreManagerStorageRequest $request)
     {
+        Gate::authorize('manager', 'in_storages');
         //перемещаем оборудавание по складам
         $equipment = new Equipment();
         $equipment = $equipment->moveToStorage($request);

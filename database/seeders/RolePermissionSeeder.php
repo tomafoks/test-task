@@ -43,6 +43,7 @@ class RolePermissionSeeder extends Seeder
         }
 
         $distributorRoles = [
+            'view_equipment',
             'edit_equipment',
         ];
 
